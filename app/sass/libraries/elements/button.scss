@@ -1,0 +1,287 @@
+$standard_button_color: #E0E1E2;
+$standard_button_hover_color: #CACBCD;
+$facebook_color: #3b5998;
+$facebook_hover_color: #304d8a;
+$twitter_color: #55acee;
+$twitter_hover_color: #35a2f4;
+$google_plus_color: #dd4b39;
+$google_plus_hover_color: #e0321c;
+$linkedin_color: #1f88be;
+$linkedin_hover_color: #147baf;
+$instagram_color: #49769c;
+$instagram_hover_color: #3d698e;
+$youtube_color: #cc181e;
+$youtube_hover_color: #bd0d13;
+$white: #fff;
+$red: #db2828;
+$red_hover: #d01919;
+$orange: #f2711c;
+$orange_hover: #f26202;
+$yellow: #eaae00;
+$yellow_hover: #fbbd08;
+$olive: #b5cc18;
+$olive_hover: #a7bd0d;
+$green: #21ba45;
+$green_hover: #16ab39;
+$teal: #00b5ad;
+$teal_hover: #009c95;
+$blue: #2185d0;
+$blue_hover: #1678c2;
+$violet: #6435c9;
+$violet_hover: #5829bb;
+$purple: #a333c8;
+$purple_hover: #9627ba;
+$pink: #e03997;
+$pink_hover: #e61a8d;
+$brown: #a5673f;
+$brown_hover: #975b33;
+$grey: #767676;
+$grey_hover: #838383;
+$black: #1b1c1d;
+$black_hover: #27292a;
+
+
+
+// Standard Button - starts
+.button{
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  background-color: $standard_button_color;
+  color: rgba(0,0,0,.6);
+  font-family: Lato,'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin: 0 .25em 0 0;
+  padding: .78em 1.5em;
+  text-transform: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .2867rem;
+  box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+  user-select: none;
+  transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button.mini{
+  font-size: .785em;
+}
+.button.tiny{
+  font-size: .85em;
+}
+.button.small{
+  font-size: .928em;
+}
+.button.medium{
+  font-size: 1.14em;
+}
+.button.large{
+  font-size: 1.42em;
+}
+.button.big{
+  font-size: 1.46em;
+}
+.button.huge{
+  font-size: 1.48em;
+}
+.button.massive{
+  font-size: 1.71em;
+}
+
+// Toggle buttons
+.button.toggle{
+  min-width: 200px;
+}
+
+.button.toggle.selected{
+  background-color: $green !important;
+  text-shadow: none;
+  color: $white;
+}
+
+// disabled button
+.disabled{
+  cursor: default;
+  opacity: .45 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+// button on hover
+.button:hover{
+  background-color: $standard_button_hover_color;
+  background-image: none;
+  box-shadow: 0 0 0 1px transparent inset,0 0 0 0 rgba(34,36,38,.15) inset;
+  color: rgba(0,0,0,.8);
+}
+// Standard Button - ends
+
+// solid colored buttons
+.button.solid{
+  font-size: 1rem;
+  color: $white
+}
+.button.solid:hover{
+  color: $white
+}
+.button.solid.red{
+  background-color: $red;
+}
+.button.solid.red:hover{
+  background-color: $red_hover;
+}
+.button.solid.orange{
+  background-color: $orange;
+}
+.button.solid.orange:hover{
+  background-color: $orange_hover;
+}
+.button.solid.yellow{
+  background-color: $yellow;
+}
+.button.solid.yellow:hover{
+  background-color: $yellow_hover;
+}
+.button.solid.olive{
+  background-color: $olive;
+}
+.button.solid.olive:hover{
+  background-color: $olive_hover;
+}
+.button.solid.green{
+  background-color: $green;
+}
+.button.solid.green:hover{
+  background-color: $green_hover;
+}
+.button.solid.teal{
+  background-color: $teal;
+}
+.button.solid.teal:hover{
+  background-color: $teal_hover;
+}
+.button.solid.blue{
+  background-color: $blue;
+}
+.button.solid.blue:hover{
+  background-color: $blue_hover;
+}
+.button.solid.violet{
+  background-color: $violet;
+}
+.button.solid.violet:hover{
+  background-color: $violet_hover;
+}
+.button.solid.purple{
+  background-color: $purple;
+}
+.button.solid.purple:hover{
+  background-color: $purple_hover;
+}
+.button.solid.pink{
+  background-color: $pink;
+}
+.button.solid.pink:hover{
+  background-color: $pink_hover;
+}
+.button.solid.brown{
+  background-color: $brown;
+}
+.button.solid.brown:hover{
+  background-color: $brown_hover;
+}
+.button.solid.grey{
+  background-color: $grey;
+}
+.button.solid.grey:hover{
+  background-color: $grey_hover;
+}
+.button.solid.black{
+  background-color: $black;
+}
+.button.solid.black:hover{
+  background-color: $black_hover;
+}
+
+// Social Media Buttons - Starts
+.button.social.medias{
+  font-size: 1rem;
+  color: $white;
+  text-shadow: none;
+  background-image: none;
+  box-shadow: 0 0 0 0 rgba(34,36,38,.15) inset;
+}
+
+.button.social.medias.facebook{
+  background-color: $facebook_color;
+}
+.button.social.medias.facebook:hover{
+  background-color: $facebook_hover_color;
+}
+
+.button.social.medias.twitter{
+  background-color: $twitter_color;
+}
+.button.social.medias.twitter:hover{
+  background-color: $twitter_hover_color;
+}
+
+.button.social.medias.google.plus{
+  background-color: $google_plus_color;
+}
+.button.social.medias.google.plus:hover{
+  background-color: $google_plus_hover_color;
+}
+
+.button.social.medias.linkedin{
+  background-color: $linkedin_color;
+}
+.button.social.medias.linkedin:hover{
+  background-color: $linkedin_hover_color;
+}
+
+.button.social.medias.instagram{
+  background-color: $instagram_color;
+}
+.button.social.medias.instagram:hover{
+  background-color: $instagram_hover_color;
+}
+
+.button.social.medias.youtube{
+  background-color: $youtube_color;
+}
+.button.social.medias.youtube:hover{
+  background-color: $youtube_hover_color;
+}
+
+// circular social media buttons
+.button.social.medias.circular.facebook, .button.social.medias.circular.twitter, .button.social.medias.circular.google.plus, .button.social.medias.circular.linkedin, .button.social.medias.circular.instagram, .button.social.medias.circular.youtube{
+  height: 50px;
+  width: 50px;
+  border-radius: 10em;
+}
+// Social Media Buttons - Ends
+
+// Icons - starts
+.icon.social.medias{
+  display: inline-block;
+  margin: 0 .428em 0 -.214em;
+  height: .9em;
+  opacity: .8;
+  transition: opacity .1s ease;
+}
+
+.icon.social.medias.circular{
+  opacity: .9;
+  margin-left: -9px;
+  height: 1.3em;
+  width: 1.3em;
+  vertical-align: baseline;
+}
+// Icons - ends

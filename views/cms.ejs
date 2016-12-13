@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Head partial -->
+  <%- include ./partials/head %>
+
+</head>
+<body>
+  <!-- NavBar partial -->
+  <%- include ./partials/navbar %>
+
+  <div class="container" id="cms">
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <%- include ./partials/sidebar %>
+
+        <%- body -%>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer partial -->
+  <%- include ./partials/footer %>
+
+  <!-- javascript imports -->
+  <%- include ./partials/javascripts %>
+
+</body>
+</html>

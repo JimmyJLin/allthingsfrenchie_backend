@@ -1,0 +1,40 @@
+
+// import from various pages
+// auth
+@import "views/auth/login.scss";
+
+// pages
+@import "views/pages/index.scss";
+
+// partials
+@import "views/partials/navbar.scss";
+@import "views/partials/footer.scss";
+
+
+
+/* Mobile & Tablet @media imports - starts */
+// iPhone 4
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  @import "responsive/mobile_4";
+}
+// iPhone 5 & 5S
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  @import "responsive/mobile_5";
+}
+// iPhone 6 & 6S
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  @import "responsive/mobile_6";
+}
+// iPhone 6plus
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  @import "responsive/mobile_6plus";
+}
+// Tablets
+@media only screen and (min-device-width: 736px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  @import "responsive/tablet";
+}
+/* Mobile & Tablet @media imports - ends */
+
+/* Libraries - start */
+@import "libraries";
+/* Libraries - start */

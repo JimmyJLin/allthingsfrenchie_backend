@@ -1,3 +1,29 @@
-<div id="nav_bar">
-  <h3> ---> Place NavBar here <--- </h3>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <!-- Options -->
+      <li>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Options </a>
+        <ul class="dropdown-menu">
+          <li><a href="/cms/">CMS</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+        </ul>
+      </li>
+
+      <!-- User Auth -->
+      <li>
+        <a href="/users/login"> Login </a>
+      </li>
+
+    </ul>
+
+
+  </div>
+</nav>

@@ -4,8 +4,9 @@ const main = express.Router();
 
 
 /* api routes */
-main.get('/', (req, res) => {
-  res.render('pages/index');
-});
+main.route('/')
+  .get((req, res) => {
+    res.render('pages/index');
+  });
 
 module.exports = main;
