@@ -6,7 +6,9 @@ const bodyParser = require('body-parser');
 const pgp = require('pg-promise')({});
 const cors = require('cors');
 const engine = require('ejs-mate');
-
+const firebase = require('firebase');
+const session = require('express-session');
+const flash = require('express-flash');
 
 
 /* app setting */
@@ -15,6 +17,16 @@ const port = process.env.PORT || 8080;
 const server = app.listen(port);
 const request = require('request');
 
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBwn_tYt7de4xk9-iAGhe016LykoSMmh4s",
+  authDomain: "allthingsfrenchie-ce237.firebaseapp.com",
+  databaseURL: "https://allthingsfrenchie-ce237.firebaseio.com",
+  storageBucket: "allthingsfrenchie-ce237.appspot.com",
+  messagingSenderId: "1073675691297"
+};
+firebase.initializeApp(config);
+
 
 // express server settings
 app.use(cors());
@@ -22,6 +34,13 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: 'jimmylin@gmail'
+}));
+app.use(flash());
+
 app.set('views', './views');
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');

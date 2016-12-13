@@ -1,22 +1,12 @@
 <% layout('main') -%>
 
-<div class="container" id="login">
+<div class="container" id="signup">
 
   <div class="row">
     <div class="col-lg-6">
 
-      <% if (messages.length > 0) { %>
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" arial-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <%= message %>
-        </div>
-      <% } %>
-
       <form method="post">
-        <h1>Login</h1>
-
+        <h1>Signup</h1>
         <div class="form-group">
           <label="name">Email: </label>
           <input type="email" class="form-control" name="email">
