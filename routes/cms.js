@@ -8,11 +8,18 @@ const cms = express.Router();
 cms.route('/')
   .get((req, res) => {
     const user = firebase.auth().currentUser;
+
     if (user) {
-      console.log('rendering cms page')
-      res.render('cms/cms');
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user.emailVerified) {
+          res.render('cms/cms');
+          console.log('Email is verified');
+        } else {
+          console.log('Email is not verified');
+          res.redirect('/users/verify-email');
+        }
+      });
     } else {
-      console.log('redirecting')
       res.redirect('/');
     }
   });

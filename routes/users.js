@@ -60,4 +60,22 @@ users.route('/logout')
       });
   });
 
+users.route('/verify-email')
+  .get((req, res) => {
+    res.render('auth/verify-email');
+  })
+  .post((req, res, next) => {
+    const user = firebase.auth().currentUser;
+
+    user.sendEmailVerification()
+      .then(() => {
+        console.log('Email sent');
+        res.redirect('/');
+      }, (error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + ': ' + errorMessage);
+      });
+  });
+
 module.exports = users;
