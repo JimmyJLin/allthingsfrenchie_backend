@@ -3,13 +3,21 @@ const firebase = require('firebase');
 
 const users = express.Router();
 
-let messages;
+let messages = [];
+
+function message() {
+  messages = setTimeout(resetMessage, 3000);
+}
+
+function resetMessage() {
+  messages = [];
+}
 
 /* api routes */
 users.route('/login')
   .get((req, res) => {
     res.render('auth/login', { messages });
-    console.log('errorMessage', messages);
+    message();
   })
   .post((req, res, next) => {
     const email = req.body.email;
@@ -20,13 +28,8 @@ users.route('/login')
         res.redirect('/cms/');
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        const message = errorCode + ': ' + errorMessage;
-        console.log('errors -----> ', message)
-        // console.log("errors message ----", req.flash('errors'))
         messages = errorMessage;
-
         res.redirect('/users/login');
       });
   });
@@ -34,6 +37,8 @@ users.route('/login')
 users.route('/signup')
   .get((req, res) => {
     res.render('auth/signup', { messages });
+    message();
+
   })
   .post((req, res, next) => {
     const email = req.body.email;
@@ -44,10 +49,8 @@ users.route('/signup')
         res.redirect('/users/login');
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         messages = errorMessage;
-
         res.redirect('/users/signup');
       });
   });
@@ -76,6 +79,28 @@ users.route('/verify-email')
         console.log('Email sent');
         res.redirect('/');
       }, (error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + ': ' + errorMessage);
+      });
+  });
+
+users.route('/reset-password')
+  .get((req, res) => {
+    res.render('auth/reset-password', { messages });
+    console.log(messages)
+    message();
+  })
+  .post((req, res, next) => {
+    const auth = firebase.auth();
+    const emailAddress = req.body.email;
+
+    auth.sendPasswordResetEmail(emailAddress)
+      .then(() => {
+        console.log('Email sent');
+        res.redirect('/users/login');
+      }, (error) => {
+        console.log('An error happened.')
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode + ': ' + errorMessage);
