@@ -28,6 +28,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// Get a reference to the database
+const database = firebase.database();
 
 // express server settings
 app.use(cors());
