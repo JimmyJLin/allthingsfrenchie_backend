@@ -7,6 +7,7 @@ const pgp = require('pg-promise')({});
 const cors = require('cors');
 const engine = require('ejs-mate');
 const firebase = require('firebase');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('express-flash');
 
@@ -34,6 +35,7 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(session({
   resave: true,
   saveUninitialized: true,

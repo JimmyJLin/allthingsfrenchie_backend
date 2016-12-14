@@ -3,11 +3,13 @@ const firebase = require('firebase');
 
 const users = express.Router();
 
+let messages;
 
 /* api routes */
 users.route('/login')
   .get((req, res) => {
-    res.render('auth/login');
+    res.render('auth/login', { messages });
+    console.log('errorMessage', messages);
   })
   .post((req, res, next) => {
     const email = req.body.email;
@@ -20,10 +22,10 @@ users.route('/login')
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        const message = errorCode + ': ' + errorMessage
-        console.log(errorCode + ': ' + errorMessage);
-        req.flash('errors', errorMessage)
-        console.log("errors message ----", req.flash('errors'))
+        const message = errorCode + ': ' + errorMessage;
+        console.log('errors -----> ', message)
+        // console.log("errors message ----", req.flash('errors'))
+        messages = errorMessage;
 
         res.redirect('/users/login');
       });
@@ -31,7 +33,7 @@ users.route('/login')
 
 users.route('/signup')
   .get((req, res) => {
-    res.render('auth/signup');
+    res.render('auth/signup', { messages });
   })
   .post((req, res, next) => {
     const email = req.body.email;
@@ -44,7 +46,9 @@ users.route('/signup')
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode + ': ' + errorMessage);
+        messages = errorMessage;
+
+        res.redirect('/users/signup');
       });
   });
 
