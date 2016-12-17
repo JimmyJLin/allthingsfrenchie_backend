@@ -6,6 +6,53 @@ const cms = express.Router();
 let authUser;
 let userData = '';
 
+// helper functions - starts
+function postImageToFirebase(imgFile) {
+  const file = imgFile
+
+  const storageRef = firebase.storage().ref();
+
+  const metadata = {
+    contentType: 'image/jpeg'
+  };
+
+  const uploadTask = storageRef.child('profile' + file.name).put(file, metadata);
+
+  uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
+    // Get task progress, inlcuding number of bytes uploaded and the total number of bytes to be uploaded
+
+    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    // console.log('Upload is ' + progress + '% done');
+
+    switch (snapshot.state) {
+      case firebase.storage.TaskEvent.PAUSED: // or 'paused'
+        console.log('Upload is paused');
+        break;
+      case firebase.storage.TaskState.RUNNING: // or 'running'
+        console.log('Upload is running');
+        break;
+    }
+  }, (error) => {
+    switch (error.code) {
+      case 'storage/unauthorized':
+        // User doesn't have permission to access the object
+        break;
+      case 'storage/canceled':
+        // User canceled the upload
+        break;
+      case 'storage/unknown':
+        // Unknown error occurred, inspect error.serverResponse
+        break;
+    }
+  }, () => {
+    // Upload completed successfully, now we can get the download URL
+    const downloadURL = uploadTask.snapshot.downloadURL;
+    console.log('link to image', downloadURL);
+  });
+
+}
+
+// hlper functions - ends
 /* api routes */
 cms.route('/', { authUser, userData })
   .get((req, res) => {
@@ -84,19 +131,23 @@ cms.route('/profile')
   })
   .post((req, res, next) => {
     console.log('name', req.body.name);
+    console.log('file', req.body.file);
     console.log('photoURL', req.body.photoURL);
+    const imgFile = req.body.file;
 
-    const user = firebase.auth().currentUser;
-    console.log('user-UID', user.uid);
+    postImageToFirebase(imgFile);
 
-    firebase.database().ref().child('Profiles').child(user.uid).set({
-      displayName: req.body.name,
-      photoURL: req.body.photoURL
-    })
-      .then(() => {
-        console.log('updated user profile');
-      }, (error) => {
-        console.log('error', error.message);
-      });
+    // const user = firebase.auth().currentUser;
+    // console.log('user-UID', user.uid);
+    //
+    // firebase.database().ref().child('Profiles').child(user.uid).set({
+    //   displayName: req.body.name,
+    //   photoURL: req.body.photoURL
+    // })
+    //   .then(() => {
+    //     console.log('updated user profile');
+    //   }, (error) => {
+    //     console.log('error', error.message);
+    //   });
   });
 module.exports = cms;

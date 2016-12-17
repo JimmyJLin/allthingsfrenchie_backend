@@ -20,16 +20,13 @@ const request = require('request');
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyBwn_tYt7de4xk9-iAGhe016LykoSMmh4s",
-  authDomain: "allthingsfrenchie-ce237.firebaseapp.com",
-  databaseURL: "https://allthingsfrenchie-ce237.firebaseio.com",
-  storageBucket: "allthingsfrenchie-ce237.appspot.com",
-  messagingSenderId: "1073675691297"
+  apiKey: 'AIzaSyBwn_tYt7de4xk9-iAGhe016LykoSMmh4s',
+  authDomain: 'allthingsfrenchie-ce237.firebaseapp.com',
+  databaseURL: 'https://allthingsfrenchie-ce237.firebaseio.com',
+  storageBucket: 'allthingsfrenchie-ce237.appspot.com',
+  messagingSenderId: '1073675691297'
 };
 firebase.initializeApp(config);
-
-// Get a reference to the database
-const database = firebase.database();
 
 // express server settings
 app.use(cors());
