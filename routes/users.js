@@ -4,6 +4,7 @@ const firebase = require('firebase');
 const users = express.Router();
 
 let messages = [];
+let authUser = false;
 
 function message() {
   messages = setTimeout(resetMessage, 3000);
@@ -16,7 +17,7 @@ function resetMessage() {
 /* api routes */
 users.route('/login')
   .get((req, res) => {
-    res.render('auth/login', { messages });
+    res.render('auth/login', { messages, authUser });
     message();
   })
   .post((req, res, next) => {
@@ -25,6 +26,7 @@ users.route('/login')
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(() => {
+        authUser = true;
         res.redirect('/cms/');
       })
       .catch((error) => {
@@ -38,7 +40,6 @@ users.route('/signup')
   .get((req, res) => {
     res.render('auth/signup', { messages });
     message();
-
   })
   .post((req, res, next) => {
     const email = req.body.email;
@@ -59,6 +60,7 @@ users.route('/logout')
   .get((req, res, next) => {
     firebase.auth().signOut()
       .then(() => {
+        authUser = false;
         res.redirect('/');
       }, (error) => {
         const errorCode = error.code;

@@ -1,8 +1,156 @@
 <% layout('cms') -%>
+<div id="add_products" class="container-fluid">
 
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
- <h1 class="page-header">Add New Products</h1>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Add New Products</h1>
 
+    <form method="post">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <label="name">Product Name </label>
+            <input type="text" class="form-control" name="product_name">
+          </div>
+        </div>
 
+        <div class="col-md-4">
+          <div class="form-group">
+            <label="name"> Category </label>
+            <br>
+            <select name="category" id="">
+              <option value="Tops and Tees">Tops and Tees</option>
+              <option value="ATF Pocket Tees">ATF Pocket Tees</option>
+              <option value="Bags">Bags</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
+      <div class="horizontal_divider"></div>
+
+      <!-- Sizes -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label="name">Unit Price </label>
+            <input type="number" class="form-control" name="price">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label="name"> XSmall </label>
+            <input type="number" class="form-control" name="size_xsmall">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label="name"> Small </label>
+            <input type="number" class="form-control" name="size_small">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label="name"> Medium </label>
+            <input type="number" class="form-control" name="size_medium">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label="name"> Large </label>
+            <input type="number" class="form-control" name="size_large">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label="name"> XLarge </label>
+            <input type="number" class="form-control" name="size_xlarge">
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal_divider"></div>
+
+      <!-- Product Descriptions -->
+      <div class="form-group">
+        <label="name">Descriptions </label>
+        <textarea class="form-control" name="descriptions" rows="3"></textarea>
+      </div>
+
+      <div class="horizontal_divider"></div>
+
+      <!-- Product Bullet Points -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Bullet Point 1 </label>
+            <input type="text" class="form-control" name="point_one">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Bullet Point 2 </label>
+            <input type="text" class="form-control" name="point_two">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Bullet Point 3 </label>
+            <input type="text" class="form-control" name="point_three">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Bullet Point 4 </label>
+            <input type="text" class="form-control" name="point_four">
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal_divider"></div>
+
+      <!-- Thumbnail img links -->
+      <div class="form-group">
+        <label="name"> Thumbnail </label>
+        <input type="text" class="form-control" name="thumbnail">
+      </div>
+
+      <!-- Product Image Links -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Photo 1 </label>
+            <input type="text" class="form-control" name="img_one">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Photo 2 </label>
+            <input type="text" class="form-control" name="img_two">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Photo 3 </label>
+            <input type="text" class="form-control" name="img_three">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label="name"> Photo 4 </label>
+            <input type="text" class="form-control" name="img_four">
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+  </div>
 </div>

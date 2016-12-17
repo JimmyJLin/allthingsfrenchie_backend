@@ -8,23 +8,28 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <!-- Options -->
-      <li>
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Options </a>
-        <ul class="dropdown-menu">
-          <li><a href="/cms/">CMS</a></li>
-          <li><a href="/users/logout">Logout</a></li>
-        </ul>
-      </li>
+      <% if (authUser) { %>
 
-      <!-- User Auth -->
-      <li>
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Signup / Login </a>
-        <ul class="dropdown-menu">
-          <li><a href="/users/signup">Signup</a></li>
-          <li><a href="/users/login">Login</a></li>
-        </ul>
-      </li>
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Settings </a>
+          <ul class="dropdown-menu">
+            <li><a href="/cms/">CMS</a></li>
+            <li><a href="/users/logout">Logout</a></li>
+          </ul>
+        </li>
+
+      <% } else { %>
+        <!-- User Auth -->
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Signup / Login </a>
+          <ul class="dropdown-menu">
+            <li><a href="/users/signup">Signup</a></li>
+            <li><a href="/users/login">Login</a></li>
+          </ul>
+        </li>
+
+      <% } %>
+
 
     </ul>
 

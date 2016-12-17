@@ -57,3 +57,5 @@ const cmsRoutes = require('./routes/cms');
 app.use('/', mainRoutes);
 app.use('/users', userRoutes);
 app.use('/cms', cmsRoutes);
+
+console.log('Listening on: ' + port);
