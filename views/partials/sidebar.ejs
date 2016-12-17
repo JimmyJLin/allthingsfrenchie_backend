@@ -1,6 +1,23 @@
-<div class="col-sm-3 col-md-2 sidebar">
+<div id="side-bar" class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
-    <li class="active"><a href="/cms">Overview <span class="sr-only">(current)</span></a></li>
+    <% if (userData == null || userData == '' || userData === typeof undefined) { %>
+      <li id="profile_link"><a href="/users/profile">Update Profile</a></li>
+    <% } else { %>
+      <li>
+        <ul id="profile">
+          <li id="profile_img">
+            <img src="<%= userData.photoURL %>" alt="profile-img">
+          </li>
+          <li id="profile_name"><%= userData.name %></li>
+          <li id="profile_link"><a href="/cms/profile">Edit Profile</a></li>
+        </ul>
+      </li>
+    <% } %>
+    <br>
+    <div class="horizontal_divider"></div>
+    <br>
+
+    <li><a href="/cms">Overview <span class="sr-only">(current)</span></a></li>
     <li><a href="/cms/add-products">Add Products</a></li>
     <li><a href="/cms/add-category">Add Category</a></li>
     <li><a href="/cms/inventory">Inventory</a></li>

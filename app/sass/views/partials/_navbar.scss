@@ -1,4 +1,26 @@
 // nav_bar stylings
 #nav_bar{
-  
+
+}
+
+#side-bar{
+  #profile{
+    list-style-type: none;
+
+    #profile_name{
+      padding-top: 5%;
+      padding-left: 10%;
+    }
+
+    #profile_link{
+      padding-left: 9%;
+    }
+
+    #profile_img img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+  }
 }

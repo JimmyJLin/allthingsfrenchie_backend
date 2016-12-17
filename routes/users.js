@@ -5,6 +5,7 @@ const users = express.Router();
 
 let messages = [];
 let authUser = false;
+let userData;
 
 function message() {
   messages = setTimeout(resetMessage, 3000);
@@ -108,5 +109,6 @@ users.route('/reset-password')
         console.log(errorCode + ': ' + errorMessage);
       });
   });
+
 
 module.exports = users;

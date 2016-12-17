@@ -4,17 +4,26 @@ const firebase = require('firebase');
 const cms = express.Router();
 
 let authUser;
+let userData = '';
 
 /* api routes */
-cms.route('/', { authUser })
+cms.route('/', { authUser, userData })
   .get((req, res) => {
     const user = firebase.auth().currentUser;
+    const userId = firebase.auth().currentUser.uid;
 
     if (user) {
       firebase.auth().onAuthStateChanged((user) => {
         if (user.emailVerified) {
           authUser = true;
-          res.render('cms/cms', { authUser });
+          firebase.database().ref('/Profiles/' + userId).once('value').then((snapshot) => {
+            userData = {
+              name: snapshot.val().displayName,
+              photoURL: snapshot.val().photoURL
+            };
+            console.log('userData-----', userData);
+            res.render('cms/cms', { authUser, userData });
+          });
           console.log('Email is verified');
         } else {
           console.log('Email is not verified');
@@ -28,7 +37,7 @@ cms.route('/', { authUser })
 
 cms.route('/add-products')
   .get((req, res) => {
-    res.render('cms/add-products', { authUser })
+    res.render('cms/add-products', { authUser, userData })
   })
   .post((req, res, next) => {
     const productName = req.body.product_name;
@@ -61,12 +70,33 @@ cms.route('/add-products')
 
 cms.route('/add-category')
   .get((req, res) => {
-    res.render('cms/add-category', { authUser })
+    res.render('cms/add-category', { authUser, userData });
   });
 
 cms.route('/inventory')
   .get((req, res) => {
-    res.render('cms/inventory', { authUser })
+    res.render('cms/inventory', { authUser, userData });
   });
 
+cms.route('/profile')
+  .get((req, res) => {
+    res.render('profile/profile', { authUser, userData });
+  })
+  .post((req, res, next) => {
+    console.log('name', req.body.name);
+    console.log('photoURL', req.body.photoURL);
+
+    const user = firebase.auth().currentUser;
+    console.log('user-UID', user.uid);
+
+    firebase.database().ref().child('Profiles').child(user.uid).set({
+      displayName: req.body.name,
+      photoURL: req.body.photoURL
+    })
+      .then(() => {
+        console.log('updated user profile');
+      }, (error) => {
+        console.log('error', error.message);
+      });
+  });
 module.exports = cms;
