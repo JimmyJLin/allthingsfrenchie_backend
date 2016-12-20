@@ -50,9 +50,14 @@ app.set('view engine', 'ejs');
 const mainRoutes = require('./routes/main');
 const userRoutes = require('./routes/users');
 const cmsRoutes = require('./routes/cms');
+const instagramRoute = require('./routes/instagram');
 
+// backend app APIs
 app.use('/', mainRoutes);
 app.use('/users', userRoutes);
 app.use('/cms', cmsRoutes);
+
+// consumable APIs
+app.use('/api/instagram', instagramRoute);
 
 console.log('Listening on: ' + port);
