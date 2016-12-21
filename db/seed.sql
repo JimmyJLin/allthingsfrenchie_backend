@@ -1,102 +1,101 @@
-INSERT INTO ApplicantUsers (name, last_name, email, password) VALUES
-('jim', 'jim-last', 'jim@jim.com', '23242sdsdsds'),
-('raz', 'raz-last', 'raz@raz.com', 'dsdsdsdsds'),
-('emi', 'emi-last', 'emi@emi.com', 'dsdsdsdsdsdsdsds'),
-('emine', 'emine-last', 'emine@emine.com', '44dsdsds');
-
-INSERT INTO Employer (employer_id, name, last_name, email, password) VALUES
-(1,'jim', 'jim-last', 'jim@jim.com', '23242sdsdsds'),
-(2,'raz', 'raz-last', 'raz@raz.com', 'dsdsdsdsds'),
-(4,'emi', 'emi-last', 'emi@emi.com', 'dsdsdsdsdsdsdsds'),
-(2,'emine', 'emine-last', 'emine@emine.com', '44dsdsds');
-
-INSERT INTO Employers (
-  company_name,
-  company_address,
-  company_city,
-  company_state,
-  company_zip,
-  company_description,
-  company_website,
-  company_phone_number,
-  company_email,
-  company_size,
-  company_industry,
-  company_branch,
-  company_logo
-) VALUES
+INSERT INTO Products (id, name, category, descriptions, key_bullets, price, size, color, img_thumbnail, img_full) VALUES
 (
-  'UBS Investment Bank',
-  '1 UBS Drive',
-  'New YOrk',
-  'NY',
-  '10012',
-  'UBS is a global firm providing financial services in over 50 countries. Visit our site to find out what we offer in your country.',
-  'https://www.ubs.com',
-  '8882793343',
-  'info@ubs.com',
-  'Large Cap',
-  'Finance',
-  'New York',
-  'images/company_logo/ubs.png'
+  '1',
+  'Merci Bouquet V-Neck Tee (Hers)',
+  'Tops & Tees',
+  'Dogs Allowed Here! Women Tee',
+  '{
+    "Limited Edition AllThingsFrenchie Pocket Series",
+    "Made in USA",
+    "True to Size / Fitted",
+    "Ultra Soft Material",
+    "100% Cotton",
+    "Due to the print pattern, not all pockets will look exactly like the one shown"
+  }',
+  '27.00',
+  '{
+    xsmall: 0,
+    small: 5,
+    medium: 10,
+    large: 5,
+    xlarge: 0
+  }',
+  '',
+  'https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FMerci%20Bouquet%20V-Neck%20(hers)%2Fthumbnail%2Fmerci_thumb.jpg?alt=media&token=0430c8bd-4d7c-4bbd-84db-90131900a6a9',
+  '{
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FMerci%20Bouquet%20V-Neck%20(hers)%2Ffull%2Fmerci_hers_1.jpg?alt=media&token=64ed9282-8e0e-4aa7-a096-b2a1beed10b0",
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FMerci%20Bouquet%20V-Neck%20(hers)%2Ffull%2Fmerci_hers_2.jpeg?alt=media&token=2517e847-7545-47af-9c0a-c12bd1dda148",
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FMerci%20Bouquet%20V-Neck%20(hers)%2Ffull%2Fmerci_hers_3.jpeg?alt=media&token=ce4b6627-a5f0-4912-9344-6255d6d29859"
+  }'
 ),
 (
-  'Company B',
-  'B Drive',
-  'Awesome',
-  'NY',
-  '10012',
-  'Best Company in Town',
-  'www.CompanyB.com',
-  '21221212121',
-  'B@B.com',
-  'Micro Cap',
-  'Accounting',
-  'New YOrk',
-  'logo.png'
+  '2',
+  'Get Ahead Necklace',
+  'Jewelries',
+  'Dogs Allowed Here! Women Tee',
+  '{
+    "Zinc alloy",
+    "Chain length 18",
+    "Lobster clasp"
+  }',
+  '14.95',
+  '',
+  '{
+    Matte Black: 5,
+    Antique Silver: 5,
+    Antique Bronze: 5
+  }',
+  'https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FGet%20ahead%2Fthumbnail%2Fget_ahead_thumb.jpeg?alt=media&token=932f2a27-b4f3-4b84-89dc-34e026262565',
+  '{
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FGet%20ahead%2Ffull%2Fget_ahead_1.png?alt=media&token=4eeeb529-dbd3-4f76-8c55-414bd0327698",
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FGet%20ahead%2Ffull%2Fget_ahead_2.png?alt=media&token=85156a2a-2ffa-42b6-a73c-84247a6d76a9",
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FGet%20ahead%2Ffull%2Fget_ahead_3.png?alt=media&token=9061df88-f9ac-4765-a4e8-2af69bdac46c",
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FGet%20ahead%2Ffull%2Fget_ahead_4.png?alt=media&token=717d890e-5738-4a8d-b703-2d20ca521f70"
+  }'
 ),
 (
-  'Company C',
-  'C Drive',
-  'Awesome',
-  'NY',
-  '10012',
-  'Best Company in Town',
-  'www.CompanyC.com',
-  '21221212121',
-  'C@C.com',
-  'Micro Cap',
-  'Accounting',
-  'New YOrk',
-  'logo.png'
+  '3',
+  'Vivienne Wallet',
+  'Bag & Wallet',
+  '',
+  '{
+    "100% PU leather",
+    "Snap button & zipper closure",
+    "Holds cash, card & coins",
+    "5 x 4 x 1.5",
+    "Imported"
+  }',
+  '29.95',
+  '',
+  '{
+    Forest Green: 5,
+    Lavender: 5
+  }',
+  'https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FPennie%20Wallet%2Fthumbnail%2Fpennie_wallet_thumb.jpg?alt=media&token=8dd0291e-8fd4-47e9-8748-7edac63085d9',
+  '{
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FPennie%20Wallet%2Ffull%2Fpennie_wallet_1.png?alt=media&token=73a23fc8-1c0b-4356-b423-efd19d11dd1b",
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FPennie%20Wallet%2Ffull%2Fpennie_wallet_2.png?alt=media&token=39b57379-e4df-4a77-908d-dabb0446e940"
+  }'
 ),
 (
-  'Company D',
-  'D Drive',
-  'Awesome',
-  'NY',
-  '10012',
-  'Best Company in Town',
-  'www.CompanyD.com',
-  '21221212121',
-  'D@D.com',
-  'Micro Cap',
-  'Accounting',
-  'New YOrk',
-  'logo.png'
-),
-(
-  'Company E',
-  'E Drive',
-  'Awesome',
-  'NY',
-  '10012',
-  'Best Company in Town',
-  'www.CompanyE.com',
-  '21221212121',
-  'E@E.com',
-  'Micro Cap',
-  'Accounting',
-  'New YOrk',
-  'logo.png'
-);
+  '4',
+  'Polka Bulldog Sock',
+  'Accessories',
+  '',
+  '{
+    "100% Cotton",
+    "Animal Print",
+    "Imported"
+  }',
+  '9.95',
+  '',
+  '{
+    White: 5,
+    Yellow: 5
+  }',
+  'https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FPoka%20sock%2Fthumbnail%2Fpoka_thumb.png?alt=media&token=6d5a1b17-7d81-4fba-8ea6-96e1f9b4475c',
+  '{
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FPoka%20sock%2Ffull%2Fpoka_1.png?alt=media&token=c6ef74c4-205d-42fb-9377-111a20875e2e",
+    "https://firebasestorage.googleapis.com/v0/b/allthingsfrenchie-ce237.appspot.com/o/products%2Ffrenchie%2FPoka%20sock%2Ffull%2Fpoka_2.png?alt=media&token=432573b1-cf2c-4955-bfef-b89ea3c352bc"
+  }'
+)
