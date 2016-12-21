@@ -16,16 +16,40 @@ RIGHT JOIN Color on Color.product_id = helper.id;
 SELECT *
 FROM Products
 INNER JOIN Size
-ON Products.size = Size.product_id
+ON Products.product_size = Size.product_id;
 
 
+-- SELECT *
+-- FROM Products
+-- INNER JOIN Color ON Color.product_id = Products.size
+--
+-- SELECT *
+-- FROM Products
+-- LEFT JOIN Color ON Color.product_id = Products.color
+-- GROUP BY Products.id, Products.name, Products.category, Products.descriptions, Products.key_bullets, Products.price, Products.size, Products.color, Products.img_thumbnail, Products.img_full, Color.id, Color.name, color.quantity;
+--
+-- SELECT * FROM Products LEFT JOIN Color ON Color.product_id = Products.product_color GROUP BY Products.product_id, Products.product_name, Products.product_category, Products.product_descriptions, Products.product_key_bullets, Products.product_price, Products.product_size, Products.product_color, Products.product_img_thumbnail, Products.product_img_full, Color.color_id, Color.color_name, Color.color_quantity;
+
+-- return all products with color variants
+SELECT Products.product_id, Products.product_name, Products.product_category, Products.product_descriptions, Products.product_key_bullets, Products.product_price, Products.product_size, Products.product_color, Products.product_img_thumbnail, Products.product_img_full,
+  array_agg(Color.color_name) as color_name,
+  array_agg(Color.color_quantity) as color_quantity
+FROM Products LEFT JOIN Color
+ON Products.product_color = Color.product_id
+GROUP BY Products.product_id;
+
+-- return all joint table between products and size
 SELECT *
-FROM Products
-INNER JOIN Color ON Color.product_id = Products.size
+FROM (
+  SELECT Products.product_id, Products.product_name, Products.product_category, Products.product_descriptions, Products.product_key_bullets, Products.product_price, Products.product_size, Products.product_color, Products.product_img_thumbnail, Products.product_img_full,
+    array_agg(Color.color_name) as color_name,
+    array_agg(Color.color_quantity) as color_quantity
+  FROM Products LEFT JOIN Color
+  ON Products.product_color = Color.product_id
+  GROUP BY Products.product_id
+) as helper
+LEFT JOIN Size
+ON helper.product_size = Size.product_id;
 
-SELECT *
-FROM Products
-LEFT JOIN Color ON Color.product_id = Products.color
-GROUP BY Products.id, Products.name, Products.category, Products.descriptions, Products.key_bullets, Products.price, Products.size, Products.color, Products.img_thumbnail, Products.img_full, Color.id, Color.name, color.quantity;
-
-SELECT * FROM Products LEFT JOIN Color ON Color.product_id = Products.product_color GROUP BY Products.product_id, Products.product_name, Products.product_category, Products.product_descriptions, Products.product_key_bullets, Products.product_price, Products.product_size, Products.product_color, Products.product_img_thumbnail, Products.product_img_full, Color.id, Color.name, color.quantity;
+-- combined
+SELECT * FROM (SELECT Products.product_id, Products.product_name, Products.product_category, Products.product_descriptions, Products.product_key_bullets, Products.product_price, Products.product_size, Products.product_color, Products.product_img_thumbnail, Products.product_img_full, array_agg(Color.color_name) as color_name, array_agg(Color.color_quantity) as color_quantity FROM Products LEFT JOIN Color ON Products.product_color = Color.product_id GROUP BY Products.product_id) as helper LEFT JOIN Size ON helper.product_size = Size.product_id;
