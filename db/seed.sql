@@ -1,4 +1,4 @@
-INSERT INTO Products (id, product_name, product_category, product_descriptions, product_key_bullets, product_price, product_size, product_color, product_img_thumbnail, product_img_full) VALUES
+INSERT INTO Products (product_id, product_name, product_category, product_descriptions, product_key_bullets, product_price, product_size, product_color, product_img_thumbnail, product_img_full) VALUES
 (
   '1',
   'Merci Bouquet V-Neck Tee (Hers)',
@@ -84,10 +84,10 @@ INSERT INTO Products (id, product_name, product_category, product_descriptions, 
   }'
 );
 
-INSERT INTO Size (id, product_id, xxsmall, xsmall, small, medium, large, xlarge, xxlarge) VALUES
+INSERT INTO Size (size_id, product_id, xxsmall, xsmall, small, medium, large, xlarge, xxlarge) VALUES
 ('1', '1', '0', '0', '5', '10', '5', '0', '0');
 
-INSERT INTO Color (id, product_id, name, quantity) VALUES
+INSERT INTO Color (color_id, product_id, color_name, color_quantity) VALUES
 ('1', '2', 'Matte Black', '5'),
 ('2', '2', 'Antique Silver', '5'),
 ('3', '2', 'Anitique Bronze', '5'),

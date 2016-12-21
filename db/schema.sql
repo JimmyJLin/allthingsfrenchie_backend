@@ -18,7 +18,7 @@ CREATE TABLE Products (
 );
 
 CREATE TABLE Size (
-  id SERIAL PRIMARY KEY UNIQUE,
+  size_id SERIAL PRIMARY KEY UNIQUE,
   product_id INTEGER REFERENCES Products (product_id) ON DELETE CASCADE,
   xxsmall NUMERIC,
   xsmall NUMERIC,
@@ -30,8 +30,8 @@ CREATE TABLE Size (
 );
 
 CREATE TABLE Color (
-  id SERIAL PRIMARY KEY UNIQUE,
+  color_id SERIAL PRIMARY KEY UNIQUE,
   product_id INTEGER REFERENCES Products (product_id) ON DELETE CASCADE,
-  name VARCHAR(200),
-  quantity NUMERIC
+  color_name VARCHAR(200),
+  color_quantity NUMERIC
 );
