@@ -16,7 +16,7 @@ const db = pgp(cn);
 
 // show all products
 function showAllProducts(req, res, next) {
-  db.any('select * from Products;')
+  db.any('SELECT * FROM Products LEFT JOIN Color ON Color.product_id = Products.product_color GROUP BY Products.product_id, Products.product_name, Products.product_category, Products.product_descriptions, Products.product_key_bullets, Products.product_price, Products.product_size, Products.product_color, Products.product_img_thumbnail, Products.product_img_full, Color.id, Color.name, color.quantity;')
     .then((data) => {
       res.rows = data;
       console.log('data of all products: ', data);
