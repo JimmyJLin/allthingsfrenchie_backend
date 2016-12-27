@@ -14,7 +14,7 @@ CREATE TABLE Products (
   product_color INTEGER,
   product_img_thumbnail VARCHAR(2000),
   product_img_full text[],
-  saved_data TIMESTAMP
+  product_type VARCHAR(50)
 );
 
 CREATE TABLE Size (
