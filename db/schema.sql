@@ -5,6 +5,7 @@ DROP TABLE if EXISTS Color CASCADE;
 
 CREATE TABLE Products (
   product_id SERIAL PRIMARY KEY UNIQUE,
+  product_upc VARCHAR(50),
   product_name VARCHAR(500),
   product_category VARCHAR(200),
   product_descriptions VARCHAR(2000),
