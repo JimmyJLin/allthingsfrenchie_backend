@@ -10,6 +10,7 @@ auth.route('/login')
     if (user) {
       res.json({
         status: 200,
+        emailVerified: user.emailVerified,
         message: 'user logged in'
       });
     } else {
@@ -62,12 +63,11 @@ auth.route('/signup')
         const user = firebase.auth().currentUser;
         if (user) {
           uid = user.uid;
-          console.log('user id ---->', uid);
           user.sendEmailVerification()
             .then(() => {
               res.json({
                 status: 200,
-                emailVerified: true,
+                emailVerified: user.emailVerified,
                 userId: uid
               });
               console.log('Email sent');
