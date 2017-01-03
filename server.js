@@ -52,6 +52,7 @@ const userRoutes = require('./routes/users');
 const cmsRoutes = require('./routes/cms');
 const instagramRoute = require('./routes/instagram');
 const productsRoute = require('./routes/products');
+const authRoute = require('./routes/auth');
 
 // backend app APIs
 app.use('/', mainRoutes);
@@ -61,5 +62,6 @@ app.use('/cms', cmsRoutes);
 // consumable APIs
 app.use('/api/instagram', instagramRoute);
 app.use('/api/products', productsRoute);
+app.use('/api/auth', authRoute);
 
 console.log('Listening on: ' + port);
