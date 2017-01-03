@@ -63,10 +63,19 @@ auth.route('/signup')
         if (user) {
           uid = user.uid;
           console.log('user id ---->', uid);
-          res.json({
-            status: 200,
-            userId: uid
-          });
+          user.sendEmailVerification()
+            .then(() => {
+              res.json({
+                status: 200,
+                emailVerified: true,
+                userId: uid
+              });
+              console.log('Email sent');
+            }, (error) => {
+              res.sendStatus(400);
+              const errorMessage = error.message;
+              console.log('Errors: ', errorMessage);
+            });
         } else {
           console.log('no uid found');
         }
