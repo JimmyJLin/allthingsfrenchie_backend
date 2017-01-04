@@ -7,11 +7,9 @@ const auth = express.Router();
 auth.route('/login')
   .get((req, res) => {
     const user = firebase.auth().currentUser;
-    const emailVerified = user.emailVerified
     if (user) {
       res.json({
         status: 200,
-        emailVerified,
         message: 'user logged in'
       });
     } else {
