@@ -14,6 +14,7 @@ auth.route('/login')
       });
     } else {
       console.log('oh no, not signed in');
+      return null;
     }
   })
   .post((req, res, next) => {
