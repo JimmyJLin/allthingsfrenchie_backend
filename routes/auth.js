@@ -13,7 +13,7 @@ auth.route('/login')
         message: 'user logged in'
       });
     } else {
-      res.send(200).json({ message: 'user is not currenlty signed in' });
+      res.send(400).json({ message: 'user is not currenlty signed in' });
     }
   })
   .post((req, res, next) => {
