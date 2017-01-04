@@ -24,12 +24,15 @@ auth.route('/login')
       .then(() => {
         let uid;
         let userEmail;
+        let emailVerified;
         const user = firebase.auth().currentUser;
         if (user) {
           uid = user.uid;
           userEmail = user.email;
+          emailVerified = user.emailVerified;
           console.log('user id ---->', uid);
           console.log('user email ===>', userEmail);
+          console.log('user emailVerified ===>', emailVerified);
           res.json({
             status: 200,
             userId: uid,
