@@ -36,7 +36,8 @@ auth.route('/login')
           res.json({
             status: 200,
             userId: uid,
-            email: userEmail
+            email: userEmail,
+            verifyEmail: emailVerified
           });
         } else {
           console.log('no uid found');
