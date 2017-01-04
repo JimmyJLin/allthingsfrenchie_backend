@@ -29,10 +29,11 @@ auth.route('/login')
           uid = user.uid;
           userEmail = user.email;
           console.log('user id ---->', uid);
+          console.log('user email ===>', userEmail);
           res.json({
             status: 200,
             userId: uid,
-            userEmail
+            email: userEmail
           });
         } else {
           console.log('no uid found');
